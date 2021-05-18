@@ -46,15 +46,27 @@ const questions = [
         name: "email",
         message: "What is your email address?",
     },
-];
+]
+.then((answers) => {
+    const ReadMeContent = questions(answers);
+})
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    
+}
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
-        .prompt = questions;
+        .prompt(questions)
+        
+        .then((answers) => {
+            const ReadMeContent = questions(answers);
+
+            fs.writeFile("README.md", ReadMeContent, (err) =>
+                err ? console.log(err) : console.log("Successfully created README.md file!"));
+        });
 }
 
 // Function call to initialize app
