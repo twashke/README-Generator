@@ -1,4 +1,4 @@
-# Project 1: Mood Tracker
+# README Generator
 
 ## Table of Contents 
 
