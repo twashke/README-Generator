@@ -1,8 +1,8 @@
 # DS Store
 .DS_Store
 
-# Node.js
-node.js
+# Node
+node_modules
 
 # Logs
 logs
