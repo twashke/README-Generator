@@ -47,13 +47,10 @@ const questions = [
         message: "What is your email address?",
     },
 ]
-.then((answers) => {
-    const ReadMeContent = questions(answers);
-})
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    
+
 }
 
 // TODO: Create a function to initialize app
