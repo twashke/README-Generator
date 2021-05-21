@@ -1,48 +1,61 @@
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Function to return License Badge (link included in badge)
 function renderLicenseBadge(answers) {
+  // Declare new variable
   let licenseBadge;
-
+  // Choose badge depending on answer chosen by user
   switch (answers.license) {
-    // Choose badge depending on answer chosen by user
+    // Badge includes license link 
     case "Apache":
-      licenseBadge = `![Badge](https://img.shields.io/badge/License-${answers.license}-orange)`
+      licenseBadge = `[![Badge](https://img.shields.io/badge/License-${answers.license}-orange)](https://www.apache.org/licenses/LICENSE-2.0)`
       break;
-    case "BSD-3-Clause":
-      licenseBadge = `![Badge](https://img.shields.io/badge/License-${answers.license}-brightgreen)`
+    case "BSD_3_Clause":
+      licenseBadge = `[![Badge](https://img.shields.io/badge/License-${answers.license}-brightgreen)](https://opensource.org/licenses/BSD-3-Clause)`
       break;
-    case "BSD-2-Clause":
-      licenseBadge = `![Badge](https://img.shields.io/badge/License-${answers.license}-green)`
+    case "BSD_2_Clause":
+      licenseBadge = `[![Badge](https://img.shields.io/badge/License-${answers.license}-yellow)](https://opensource.org/licenses/BSD-2-Clause)`
       break;
     case "MIT":
-      licenseBadge = `![Badge](https://img.shields.io/badge/License-${answers.license}-blue)`
+      licenseBadge = `[![Badge](https://img.shields.io/badge/License-${answers.license}-blue)](https://opensource.org/licenses/MIT)`
+      break;
+    case "LGPLv3":
+      licenseBadge = `[![Badge](https://img.shields.io/badge/License-${answers.license}-yellowgreen)](https://opensource.org/licenses/LGPL-3.0)`
+      break;
+    case "Mozilla":
+      licenseBadge = `[![Badge](https://img.shields.io/badge/License-${answers.license}-red)](https://opensource.org/licenses/MPL-2.0)`
       break;
     // If no License Information is chosen
     case "none":
+      // License Badge returns empty
       licenseBadge = "";
       break;
   };
   return licenseBadge;
 };
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Function that returns the license link
 function renderLicenseLink(answers) {
+  // Declare variable for license link
   let licenseLink;
-
+  // Choose link depending on answer chosen by user
   switch (answers.license) {
     case "Apache":
-      licenseLink = `![${answers.license}](https://www.apache.org/licenses/LICENSE-2.0)`
+      licenseLink = `[${answers.license} License](https://www.apache.org/licenses/LICENSE-2.0)`
       break;
-    case "BSD-3-Clause":
-      licenseLink = `![${answers.license}](https://opensource.org/licenses/BSD-3-Clause)`
+    case "BSD_3_Clause":
+      licenseLink = `[${answers.license} License](https://opensource.org/licenses/BSD-3-Clause)`
       break;
-    case "BSD-2-Clause":
-      licenseLink = `![${answers.license}](https://opensource.org/licenses/BSD-2-Clause)`
+    case "BSD_2_Clause":
+      licenseLink = `[${answers.license} License](https://opensource.org/licenses/BSD-2-Clause)`
       break;
     case "MIT":
-      licenseLink = `![${answers.license}](https://opensource.org/licenses/MIT)`
+      licenseLink = `[${answers.license} License](https://opensource.org/licenses/MIT)`
+      break;
+    case "LGPLv3":
+      licenseLink = `[${answers.license} License](https://opensource.org/licenses/LGPL-3.0)`
+      break;
+    case "Mozilla":
+      licenseLink = `[${answers.license} License](https://opensource.org/licenses/MPL-2.0)`
       break;
     case "none":
       licenseLink = ""
@@ -51,17 +64,18 @@ function renderLicenseLink(answers) {
   return licenseLink;
 };
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Function to return license portion of README
 function renderLicenseSection(answers) {
+  // Declare licenseLink (and function it is from)
   const licenseLink = renderLicenseLink(answers);
+  // Declare licenseInfo variable
   let licenseInfo;
-
+  // Choose license information depending on user choice
   switch(answers.license) {
     // Apache License Information
     case "Apache":
       // License statement
-      licenseInfo = `- This application is covered by the ![${answers.license}](${licenseLink}) license. \n \
+      licenseInfo = `This application is covered by the ${licenseLink}. \n \
       
       Copyright ${answers.year} ${answers.name}
 
@@ -78,9 +92,9 @@ function renderLicenseSection(answers) {
       limitations under the License.`
       break;
     // BSD-3-Clause License Information
-    case "BSD-3-Clause":
+    case "BSD_3_Clause":
       // License statement
-      licenseInfo = `This application is covered by the ![${answers.license}](${licenseLink}) license. \n \
+      licenseInfo = `This application is covered by the ${licenseLink}. \n \
       
       Copyright ${answers.year} ${answers.name}
 
@@ -95,9 +109,9 @@ function renderLicenseSection(answers) {
       THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
       break;
     // BSD-2-Clause License Information
-    case "BSD-2-Clause":
+    case "BSD_2_Clause":
       // License statement
-      licenseInfo = `- This application is covered by the ![${answers.license}](${licenseLink}) license. \n \
+      licenseInfo = `This application is covered by the ${licenseLink}. \n \
       
       Copyright ${answers.year} ${answers.name}
 
@@ -112,7 +126,7 @@ function renderLicenseSection(answers) {
     // MIT License
     case "MIT":
       // License statement
-      licenseInfo = `- This application is covered by the ![${answers.license}](${licenseLink}) license. \n \
+      licenseInfo = `This application is covered by the ${licenseLink}. \n \
       
       Copyright ${answers.year} ${answers.name}
 
@@ -122,6 +136,16 @@ function renderLicenseSection(answers) {
       
       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
       break;
+    // LGPLv3 License
+    case answers = "LGPLv3":
+        // License statement
+        licenseInfo = `This application is covered by the ${licenseLink}.`
+        break;
+    // MPL-2.0 License Information
+    case answers = "Mozilla":
+        // License statement
+        licenseInfo = `This application is covered by the ${licenseLink}.`
+        break;
     // If no License Information is chosen
     case "none":
       licenseInfo = ""
@@ -131,8 +155,9 @@ function renderLicenseSection(answers) {
 };
 
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(answers) {
+// Function to generate markdown for README
+function generateMarkdown(answers, image) {
+  // Declare variables and functions they are from
   const licenseBadge = renderLicenseBadge(answers);
   const licenseInfo = renderLicenseSection(answers);
 
@@ -141,9 +166,12 @@ function generateMarkdown(answers) {
 
 [![Badge](https://img.shields.io/badge/GitHub-${answers.github}-blueviolet?style=flat-square&logo=appveyor)](https://github.com/${answers.github}) ${licenseBadge}
 
+## Description
+
+${answers.description}
+
 ## Table of Contents 
 
-- [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -151,41 +179,37 @@ function generateMarkdown(answers) {
 - [License](#license)
 - [Questions](#questions)
 
-## Description
-
-- ${answers.description}
-
 ## Installation
 
-- Go to [Github Repo](https://github.com/${answers.github})
-- ${answers.installation}
+${answers.installation}
 
 ## Usage
 
-- ${answers.usage}
+${answers.usage} \ 
+\
+![${answers.title}](${answers.image})
 
 ## Contributing
 
-- ${answers.contribution}
+${answers.contribution}
 
 ## Tests
 
-- ${answers.test}
+${answers.test}
 
 ## License
-
-${licenseBadge}
 
 ${licenseInfo}
 
 
 ## Questions
 
-- Created by: ${answers.name}
+**Contact ${answers.name}**
 
-### Contact Information
-- GitHub User Name: [${answers.github}](https://github.com/${answers.github})
-- Email directly at ${answers.email}
+- **Email directly at** ${answers.email}
+- **GitHub User Name:** [${answers.github}](https://github.com/${answers.github})
+
+![Developer Profile Picture](${image.avatar_url}) 
 
 `;
 
