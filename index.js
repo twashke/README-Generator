@@ -113,7 +113,7 @@ const init = async () => {
         // Generate Markdown using answers and avatar
         const readme = generateMarkdown(answers, image);
         // write to file
-        writeToFile("./test/README.md", readme);
+        writeToFile("./output/README.md", readme);
     } catch (err) {
         // Console log any error that occurs
         console.log(err);
