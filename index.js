@@ -66,7 +66,7 @@ const questions = [
     {
         type: "input",
         name: "image",
-        message: "Do you have a GIF or image you would like to add to the README (remember to use the correct file path, if incorrectly entered, GIF or image will not display properly - i.e. ./../images/test.png))?",
+        message: "Do you have a GIF or image you would like to add to the README (remember to use the correct file path, if incorrectly entered, GIF or image will not display properly - i.e. ./assets/images/test.png)?",
     },
     // Enter contribution guidelines
     {

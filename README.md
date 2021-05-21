@@ -4,7 +4,7 @@
 
 ## Description
 
-Generates a README based on user input in the command line.
+After answering a series of questions on the command line a README markdown file is created for the user.
 
 ## Table of Contents 
 
@@ -17,20 +17,20 @@ Generates a README based on user input in the command line.
 
 ## Installation
 
-
+npm install and run node index.js
 
 ## Usage
 
-  
-![README Generator](./../images/test.png))
+Enter Information Here  
+![README Generator](./assets/images/test.png)
 
 ## Contributing
 
-
+Any contributions are welcome.
 
 ## Tests
 
-
+Ran each license option and saved in the test folder (in assets folder) to ensure all data was pulling in correctly for each badge, link and license information.
 
 ## License
 
