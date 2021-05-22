@@ -20,7 +20,7 @@ const questions = [
         name: "name",
         message: "Enter your name.",
         // Default to my name for easy use in the future
-        default: "Tiffany Washke",
+        // default: "Tiffany Washke",
     },
     // Enter Github user name
     {
@@ -28,7 +28,7 @@ const questions = [
         name: "github",
         message: "What is your GitHub user name?",
         // Default to my GitHub account for easy use in the future
-        default: "twashke",
+        // default: "twashke",
     },
     // Enter email information
     {
@@ -36,7 +36,7 @@ const questions = [
         name: "email",
         message: "What is your email address?",
         // Default to my email for easy use in the future
-        default: "twashke@gmail.com"
+        // default: "twashke@gmail.com"
     }, 
     // Enter the name of the project
     {
@@ -98,7 +98,7 @@ const questions = [
 //Function to write README file
 const writeToFile = (fileName, data) => {
     fs.writeFile(fileName, data, (err) =>
-        err ? console.error(err) : console.log("Successfully created README.md")
+        err ? console.error(err) : console.log(chalk.bgMagenta(`Successfully created README.md`))
     );
 }
 
@@ -113,7 +113,7 @@ const init = async () => {
         // Generate Markdown using answers and avatar
         const readme = generateMarkdown(answers, image);
         // write to file
-        writeToFile("./output/README.md", readme);
+        writeToFile("./README.md", readme);
     } catch (err) {
         // Console log any error that occurs
         console.log(err);

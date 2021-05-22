@@ -4,10 +4,11 @@
 
 ## Description
 
-After answering a series of questions on the command line a README markdown file is created for the user.
+When this application is opened in the command line, the user is given a series of questions and license information to choose from.  Once all questions have been answered, a README markdown file will be created.
 
 ## Table of Contents 
 
+- [About the Project](#about-the-project)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -15,22 +16,66 @@ After answering a series of questions on the command line a README markdown file
 - [License](#license)
 - [Questions](#questions)
 
+## About the Project
+
+- Created to help efficiently generate README markdown files for projects.
+- This application is used on the command line, it includes the following npm packages: \
+      - [fs](https://www.npmjs.com/package/fs) \
+      - [inquirer](https://www.npmjs.com/package/inquirer) \
+      - [axios](https://www.npmjs.com/package/axios) \
+      - [chalk](https://www.npmjs.com/search?q=chalk)
+- A badge has been added at the top that links to a GitHub Repo for the project owner.
+- Depending on the license chosen, a badge (and link) is added at the top for the license, also in the License section, the license information (and link) are included with the user name and year the project was created (the Mozilla and LGPLv3 licenses only include links to the documentation due to the size).
+- There is a prompt to include a gif or picture in the Usage section; however, it is crucial that the file path is correct to generate the picture.
+- In the Questions section, it includes the project creator, there GitHub user name (and link to the repo) and there email address to contact them.
+- The GitHub avatar is placed at the bottom of the Questions section (using [axios](https://www.npmjs.com/package/axios) to pull the avatar information from the GitHub API).
+
 ## Installation
 
-npm install and run node index.js
+- npm install
+- node index.js
 
 ## Usage
 
-Enter Information Here  
-![README Generator](./assets/images/test.png)
+- Watch the [README Generator Walkthrough](https://drive.google.com/file/d/1BCFBVEORgElU4vq7hfGFJbFSgpwuNK3_/view) for instructions.
+- [Sample README](sampleREADME.md) created in walkthrough above.
+- Open command line, run npm install (if it hasn't been done) and run node index.js.
+- Answer the questions when prompted and choose a license from the list provided (none will leave the license section empty and will not create a badge).
+- Once all questions have been answered, a README file will be generated.
+
+Command Line Application View 
+
+![Application View](assets/images/command-line.png) 
+
+Badges Displayed at the Top 
+
+![Badges](assets/images/badges.png) 
+
+Apache License Information 
+
+![Badges](assets/images/apache-license-info.png) 
+
+GitHub Avatar 
+
+![GitHub Avatar](assets/images/github-avatar.png) 
 
 ## Contributing
 
-Any contributions are welcome.
+Any contributions are welcome!
+
+Thank you to [Joshua Washke](https://github.com/jwashke) for his help with tutoring.
 
 ## Tests
 
-Ran each license option and saved in the test folder (in assets folder) to ensure all data was pulling in correctly for each badge, link and license information.
+Ran each license option and saved in the [test folder](assets/test) to ensure all data was pulling in correctly for each badge, link and license information. \
+      - [Apache Test](assets/test/README-apacheTest.md) \
+      - [BSD 2 Clause Test](assets/test/README-bsd2Test.md) \
+      - [BSD 3 Clause Test](assets/test/README-bsd3Test.md) \
+      - [LGPLv3 Test](assets/test/README-LGPLv3Test.md) \
+      - [MIT Test](assets/test/README-MITtest.md) \
+      - [Mozilla Test](assets/test/README-mozillaTest.md) \
+      - [no License Test](assets/test/README-noLicense.md) 
+
 
 ## License
 
